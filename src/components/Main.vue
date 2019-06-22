@@ -10,6 +10,13 @@
         ></v-textarea>
         <v-btn depressed small color="primary" @click="generatePairings">Generate Pairings</v-btn>
       </v-flex>
+      <br><!-- stupid i'll figure out later -->
+      <v-flex xs12 sm9 md6>
+        <v-data-table
+          :items="pairings"
+        >
+        </v-data-table>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -17,25 +24,14 @@
 <script>
   export default {
     data: () => ({
-      participants: '',
+      participants: 'dmitry\neric\nmelodie',
       pairings: []
     }),
     methods: {
       generatePairings() {
-        console.log(this.participants)
-        console.log(typeof(this.participants))
-        let participantsArray = this.participants
-          .split("\n")
-          .map(function(item) {
-            return item.trim()
-          })
-          .filter(i => i !== "")
-        this.pairings = this.convertParticipantsToPairings(participantsArray)
-        // OK so this will overwrite this.pairings.
-        // This.pairings will originally be empty (so there will be an empty table, which we will hide when empty)
-        // once the button is pushed, we grab the data, turn it into pairings, then overwrite the pairings in `data`,
-        // which will cause it to automatically re-render // sound ok?
-
+        console.log('participantsArray', this.participantsArray, this.participantsArray.length)
+        this.pairings = this.convertParticipantsToPairings(this.participantsArray)
+        console.log('headers', this.headers)
       },
       convertParticipantsToPairings(participantsArray) {
         // for now just return something that's approximately the right shape
@@ -46,6 +42,34 @@
         }
         console.log(periods)
         return periods
+      }
+    },
+    computed: {
+      participantsArray() {
+        return this.participants
+          .split("\n")
+          .map(function(item) {
+            return item.trim()
+          })
+          .filter(i => i !== "")
+      },
+      headers() {
+        let out = [
+          {
+            text: 'Participant',
+            align: 'left',
+            value: 'name'
+          }
+        ]
+
+        for (let i = 1; i < this.participantsArray.length + 1; i++) {
+          out.push({
+            text: i,
+            value: i
+          })
+        }
+
+        return out
       }
     }
   }
