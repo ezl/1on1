@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container grid-list-md>
     <v-layout>
       <v-flex sm12 md4>
         <label for="participantsTextArea">Enter participant names here (1 per line)</label>
