@@ -10,18 +10,6 @@
         ></v-textarea>
         <v-btn depressed small color="primary" @click="generatePairings">Generate Pairings</v-btn>
       </v-flex>
-      <v-flex xs3 sm3 md3>
-
-
-        <p>PARTICIPANTS</p>
-        {{ participants }}
-        <br><br>
-        <p>PAIRINGS</p>
-        {{ pairings }}
-        <br><br>
-        <p>ROUNDS</p>
-        {{ rounds }}
-      </v-flex>
     </v-layout>
     <v-layout>
       <v-flex xs12 sm9 md6>
@@ -29,9 +17,11 @@
           :headers="headers"
           :items="pairings"
         >
+      <template slot="items" slot-scope="myprops">
+      </template>
+
           <template v-slot:items="props">
-            <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">fooo</td>
+            <td v-for="header in headers" class="text-xs">{{ props.item[header.value] }}</td>
           </template>
         </v-data-table>
       </v-flex>
