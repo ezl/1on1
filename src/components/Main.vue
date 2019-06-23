@@ -5,6 +5,7 @@
         <label for="participantsTextArea">Enter participant names here (1 per line)</label>
         <v-textarea
           box
+          background-color="light-blue lighten-5"
           name="participantsTextArea"
           v-model="participantsTextArea"
           label="Participant names"
