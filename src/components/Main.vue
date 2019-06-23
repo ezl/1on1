@@ -9,6 +9,7 @@
           label="Enter participant names here (1 per line)"
         ></v-textarea>
         <v-btn depressed small color="primary" @click="generatePairings">Generate Pairings</v-btn>
+        <v-btn depressed small @click="clear">Clear</v-btn>
       </v-flex>
     </v-layout>
     <v-layout v-if="pairings.length">
@@ -35,6 +36,11 @@
       rounds: []
     }),
     methods: {
+      clear() {
+        this.participantsTextArea = []
+        this.pairings = []
+        this.rounds = []
+      },
       generatePairings() {
         this.rounds = this.convertParticipantsToRounds(this.participants)
         this.pairings = this.convertRoundsForDataTable(this.rounds)
