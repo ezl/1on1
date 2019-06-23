@@ -10,6 +10,11 @@
         ></v-textarea>
         <v-btn depressed small color="primary" @click="generatePairings">Generate Pairings</v-btn>
       </v-flex>
+      <v-flex xs3 sm3 md3>
+        {{ pairings }}
+      </v-flex>
+    </v-layout>
+    <v-layout>
       <v-flex xs12 sm9 md6>
         <v-data-table
           :headers="headers"
