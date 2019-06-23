@@ -1,19 +1,18 @@
 <template>
   <v-container>
     <v-layout>
-      <v-flex xs12 sm9 md6>
+      <v-flex sm12 md4>
+        <label for="participantsTextArea">Enter participant names here (1 per line)</label>
         <v-textarea
           box
           name="participantsTextArea"
           v-model="participantsTextArea"
-          label="Enter participant names here (1 per line)"
+          label="Participant names"
         ></v-textarea>
         <v-btn depressed small color="primary" @click="generatePairings">Generate Pairings</v-btn>
         <v-btn depressed small @click="clear">Clear</v-btn>
       </v-flex>
-    </v-layout>
-    <v-layout v-if="pairings.length">
-      <v-flex xs12 sm9 md6>
+      <v-flex sm12 md8 v-if="pairings.length">
         <v-data-table
           :headers="headers"
           :items="pairings"
