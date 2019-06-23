@@ -32,6 +32,7 @@
   export default {
     data: () => ({
       participantsTextArea: 'dmitry\neric\nmelodie',
+      headers: [],
       pairings: [],
       rounds: []
     }),
@@ -41,10 +42,34 @@
         this.pairings = []
         this.rounds = []
       },
+
       generatePairings() {
+        this.headers = this.generateHeaders()
         this.rounds = this.convertParticipantsToRounds(this.participants)
         this.pairings = this.convertRoundsForDataTable(this.rounds)
       },
+
+      generateHeaders() {
+        let out = [
+          {
+            text: 'Participant',
+            align: 'left',
+            value: 'name'
+          }
+        ]
+
+        let roundsRequired = (this.participants.length % 2 === 1) ? this.participants.length : this.participants.length - 1
+
+        for (let i = 1; i < roundsRequired; i++) {
+          out.push({
+            sortable: false,
+            text: i,
+            value: i
+          })
+        }
+        return out
+      },
+
       convertParticipantsToRounds(participants) {
         /* Returns an Array of pairings for each period like:
            [
@@ -83,6 +108,7 @@
         }
         return rounds
       },
+
       convertRoundsForDataTable(rounds) {
         /* Takes the output of convertParticipantsToPairings
            and makes it easier to look up by participant
@@ -141,23 +167,6 @@
             return item.trim()
           })
           .filter(i => i !== "")
-      },
-      headers() {
-        let out = [
-          {
-            text: 'Participant',
-            align: 'left',
-            value: 'name'
-          }
-        ]
-        for (let i = 1; i < this.participants.length + 1; i++) {
-          out.push({
-            sortable: false,
-            text: i,
-            value: i
-          })
-        }
-        return out
       }
     }
   }
