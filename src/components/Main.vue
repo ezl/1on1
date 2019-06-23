@@ -11,16 +11,14 @@
         <v-btn depressed small color="primary" @click="generatePairings">Generate Pairings</v-btn>
       </v-flex>
     </v-layout>
-    <v-layout>
+    <v-layout v-if="pairings.length">
       <v-flex xs12 sm9 md6>
         <v-data-table
           :headers="headers"
           :items="pairings"
+          hide-actions
         >
-      <template slot="items" slot-scope="myprops">
-      </template>
-
-          <template v-slot:items="props">
+          <template v-slot:items="props" >
             <td v-for="header in headers" class="text-xs">{{ props.item[header.value] }}</td>
           </template>
         </v-data-table>
@@ -148,6 +146,7 @@
         ]
         for (let i = 1; i < this.participants.length + 1; i++) {
           out.push({
+            sortable: false,
             text: i,
             value: i
           })
