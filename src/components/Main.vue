@@ -18,7 +18,7 @@
 
     <v-layout align-center>
       <v-flex>
-        <p class="indigo--text text--darken-2">You're probably wondering, <strong>"Why did anyone make this?"</strong> Because it's surprisingly hard to do! That's right, Brooke! It took more than 15 minutes!</p>
+        <p class="indigo--text text--darken-2">You're probably wondering, <strong>"Why did anyone make this?"</strong> Because it's surprisingly hard to do! That's right, Brooke! It took me more than 15 minutes!</p>
       </v-flex>
     </v-layout>
 
