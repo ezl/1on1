@@ -1,8 +1,30 @@
 <template>
-  <v-container grid-list-md>
+  <v-container grid-list-lg>
+    <v-layout>
+      <v-flex>
+          <v-layout align-center>
+            <v-flex sm12 md8>
+              <h1 class="blue--text text--darker-1 py-4">Create 1-on-1 Pairings For Your Team</h1>
+              <p class="subheading indigo--text text--darken-2">Make a schedule that makes sure every person in your team meets with other person.</p>
+            </v-flex>
+            <v-flex sm12 md4>
+              <v-img
+                :src="require('../assets/hero.png')"
+              ></v-img>
+            </v-flex>
+          </v-layout>
+      </v-flex>
+    </v-layout>
+
+    <v-layout align-center>
+      <v-flex>
+        <p class="indigo--text text--darken-2">You're probably wondering, <strong>"Why did anyone make this?"</strong> Because it's surprisingly hard to do! That's right, Brooke! It took more than 15 minutes!</p>
+      </v-flex>
+    </v-layout>
+
     <v-layout>
       <v-flex sm12 md4>
-        <label for="participantsTextArea">Enter participant names here (1 per line)</label>
+        <label for="participantsTextArea" class="indigo--text text--darken-2">Enter participant names here (1 per line)</label>
       </v-flex>
     </v-layout>
 
@@ -36,7 +58,7 @@
 <script>
   export default {
     data: () => ({
-      participantsTextArea: 'dmitry\neric\nmelodie',
+      participantsTextArea: 'Eric\nMelodie\nChris\nBrooke',
       headers: [],
       pairings: [],
       rounds: []
