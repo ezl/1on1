@@ -3,6 +3,8 @@
     <v-toolbar
       flat
       app
+      dense
+      color=transparent
     >
       <v-toolbar-title class="headline text-uppercase">
         <span>Generate 1 on 1 pairings</span>
