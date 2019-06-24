@@ -1,19 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar
-      flat
-      app
-      dense
-      color=transparent
-    >
-      <v-toolbar-title class="headline">
-        <span class="primary--text">Generate 1-on-1 pairings</span>
-      </v-toolbar-title>
-    </v-toolbar>
-
-    <v-content>
-      <Main/>
-    </v-content>
+    <Main/>
   </v-app>
 </template>
 
