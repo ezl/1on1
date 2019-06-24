@@ -6,8 +6,8 @@
       dense
       color=transparent
     >
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Generate 1 on 1 pairings</span>
+      <v-toolbar-title class="headline">
+        <span class="primary--text">Generate 1-on-1 pairings</span>
       </v-toolbar-title>
     </v-toolbar>
 
