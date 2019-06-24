@@ -60,7 +60,7 @@
 
         let roundsRequired = (this.participants.length % 2 === 1) ? this.participants.length : this.participants.length - 1
 
-        for (let i = 1; i < roundsRequired; i++) {
+        for (let i = 1; i < roundsRequired + 1; i++) {
           out.push({
             sortable: false,
             text: i,
