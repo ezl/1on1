@@ -20,7 +20,7 @@
           hide-actions
         >
           <template v-slot:items="props" >
-            <td v-for="header in headers" class="text-xs">{{ props.item[header.value] }}</td>
+            <td v-for="header in headers" v-bind:class="{ empty: !props.item[header.value] }" class="text-xs">{{ props.item[header.value] }}</td>
           </template>
         </v-data-table>
       </v-flex>
@@ -173,5 +173,8 @@
 </script>
 
 <style>
+.empty {
+  background-color: #ccc;
+}
 
 </style>
