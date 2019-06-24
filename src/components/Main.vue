@@ -3,6 +3,11 @@
     <v-layout>
       <v-flex sm12 md4>
         <label for="participantsTextArea">Enter participant names here (1 per line)</label>
+      </v-flex>
+    </v-layout>
+
+    <v-layout v-bind="binding">
+      <v-flex sm12 md4>
         <v-textarea
           box
           background-color="light-blue lighten-5"
@@ -167,6 +172,14 @@
             return item.trim()
           })
           .filter(i => i !== "")
+      },
+
+      binding () {
+        const binding = {}
+
+        if (this.$vuetify.breakpoint.smAndDown) binding.column = true
+
+        return binding
       }
     }
   }
